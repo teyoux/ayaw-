@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Higa gusto, Ligo ayaw?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('https://i.pinimg.com/736x/db/5e/dd/db5edd4fd5085ef38adeb726f2248166.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+    }
+
+    .text-container {
+      position: relative;
+      background: rgba(255, 240, 250, 0.4);
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #ffb6d9;
+      backdrop-filter: blur(6px);
+      text-align: center;
+    }
+
+    .glow-text {
+      font-size: 2.8em;
+      color: #ff1493;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #ff66b2,
+        0 0 20px #ff33a6,
+        0 0 30px #ff3399;
+      z-index: 1;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px white;
+      animation: sparkle 2s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.4;
+      }
+      50% {
+        transform: scale(1.4);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text-container">
+    <div class="glow-text">Higa gusto,<br>Ligo ayaw?</div>
+
+    <script>
+      const container = document.querySelector('.text-container');
+      const sparkles = 25;
+
+      for (let i = 0; i < sparkles; i++) {
+        const star = document.createElement('div');
+        star.className = 'sparkle';
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 3}s`;
+        container.appendChild(star);
+      }
+    </script>
+  </div>
+
+</body>
+</html>
