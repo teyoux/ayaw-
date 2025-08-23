@@ -1,84 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Higa gusto, Ligo ayaw?</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: url('https://i.pinimg.com/736x/db/5e/dd/db5edd4fd5085ef38adeb726f2248166.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      overflow: hidden;
-    }
-
-    .text-container {
-      position: relative;
-      background: rgba(255, 240, 250, 0.4);
-      padding: 40px 60px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px #ffb6d9;
-      backdrop-filter: blur(6px);
-      text-align: center;
-    }
-
-    .glow-text {
-      font-size: 2.8em;
-      color: #ff1493;
-      text-shadow:
-        0 0 5px #fff,
-        0 0 10px #ff66b2,
-        0 0 20px #ff33a6,
-        0 0 30px #ff3399;
-      z-index: 1;
-    }
-
-    .sparkle {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background: white;
-      border-radius: 50%;
-      box-shadow: 0 0 10px white;
-      animation: sparkle 2s infinite ease-in-out;
-      opacity: 0.7;
-    }
-
-    @keyframes sparkle {
-      0%, 100% {
-        transform: scale(0.8);
-        opacity: 0.4;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VERIFIED S.E.L.G OFFICERS</title>
+    <meta name="description" content="Landing page for VERIFIED S.E.L.G OFFICERS" />
+    <style>
+      :root{
+        --accent:#22c55e;
+        --text:#1a1a1a;
+        --muted:#333;
       }
-      50% {
-        transform: scale(1.4);
-        opacity: 1;
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+        color:var(--text);
+        background: linear-gradient(135deg, #b3ffb3 0%, #ffb3b3 100%);
+        min-height:100vh;
+        display:grid;
+        grid-template-rows:auto 1fr auto;
       }
-    }
-  </style>
-</head>
-<body>
+      header{
+        display:flex;
+        align-items:center;
+        justify-content:flex-start;
+        gap:.75rem;
+        padding:1rem clamp(1rem, 3vw, 2rem);
+        opacity:.95;
+      }
+      header img{
+        height:80px;
+        width:auto;
+      }
+      .container{
+        display:grid;
+        place-items:center;
+        padding:clamp(1rem, 3vw, 2rem);
+      }
+      h1{
+        margin:1rem 0 0;
+        font-size: clamp(2rem, 6vw + 1rem, 4.5rem);
+        line-height: 1.1;
+        letter-spacing:.02em;
+        text-align:center;
+        position:relative;
+        color:#111;
+      }
+      h1 .accent{
+        position:relative;
+        display:inline-block;
+        background: linear-gradient(90deg, #00cc00, #ff1a1a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      h1 .accent::after{
+        content:"";
+        position:absolute;
+        left:0; right:0; bottom:0.15em;
+        height:.35em;
+        background: linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,.0));
+        z-index:-1;
+        border-radius:.25em;
+      }
+      p.small-text{
+        margin-top:.75rem;
+        font-size:1rem;
+        color:#222;
+        text-align:center;
+      }
+      footer{
+        padding:1rem clamp(1rem, 3vw, 2rem);
+        text-align:center;
+        color:#333;
+        font-size:.9rem;
+        border-top:1px solid rgba(0,0,0,.15);
+        background:rgba(255,255,255,.7);
+      }
+      .fade-in{opacity:0; transform: translateY(6px); animation:fade .9s ease .1s forwards}
+      @keyframes fade{to{opacity:1; transform:none}}
+    </style>
+  </head>
+  <body>
+    <header aria-label="Top bar">
+      <img src="/mnt/data/06082b22-8c96-4e1e-a751-f162be8fe8ea.png" alt="SELG Logo" />
+      <h2 style="margin-left:.75rem; font-size:1.25rem; color:var(--text);">Supreme Elementary Learner Government</h2>
+    </header>
 
-  <div class="text-container">
-    <div class="glow-text">Higa gusto,<br>Ligo ayaw?</div>
+    <main class="container">
+      <section class="hero fade-in" aria-labelledby="page-title">
+        <h1 id="page-title" aria-live="polite">
+          <span class="accent">VERIFIED S.E.L.G OFFICERS</span>
+        </h1>
+        <p class="small-text">Made by Daniel Jarito</p>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> SELG — All rights reserved.
+    </footer>
 
     <script>
-      const container = document.querySelector('.text-container');
-      const sparkles = 25;
-
-      for (let i = 0; i < sparkles; i++) {
-        const star = document.createElement('div');
-        star.className = 'sparkle';
-        star.style.top = `${Math.random() * 100}%`;
-        star.style.left = `${Math.random() * 100}%`;
-        star.style.animationDelay = `${Math.random() * 3}s`;
-        container.appendChild(star);
-      }
+      document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-  </div>
-
-</body>
+  </body>
 </html>
